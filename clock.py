@@ -1,6 +1,6 @@
-import pygame
 import time
 import math
+import pygame
 
 pygame.init()
 
