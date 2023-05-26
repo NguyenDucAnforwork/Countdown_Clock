@@ -3,14 +3,14 @@ import pygame
 import math
 
 pygame.init()
-#Hiển thị màn hình, cài đặt fps, âm thanh, phông chữ và các biến
+
 screen = pygame.display.set_mode((500,600))
 
 GREY = (125, 125, 125)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
-#total để lưu trữ thời gian ban đầu, total_secs là thời gian tạm thời, start để bắt đầu đếm ngược
+
 total = 0
 total_secs = 0
 start = False
@@ -60,9 +60,8 @@ while running:
     screen.blit(text_5, (260,60))
     screen.blit(text_6, (260,160))
 
-    #Khai báo 3 biến total_secs, total, start để đánh dấu khi nào thì đếm ngược
     for event in pygame.event.get():
-    	#Xét xem nhấp chuột vào trường hợp nào: nút quit, nút start,...
+    	
     	if event.type == pygame.QUIT:
     		running = False
 
@@ -93,7 +92,7 @@ while running:
 	    			total = total_secs
 	    			print("press Start")
 	    		print("total_secs: " + str(total_secs))
-    #Sau khi bấm start, số giây giảm 1, cần tính tọa đồ của dây kim, dây giờ và xét trường hợp dừng
+    
     if start:
     	total_secs -= 1
     	if total_secs == 0:
@@ -104,14 +103,14 @@ while running:
     	start = False
     	total_secs = 0
 
-    #Hiện thị thời gian
+    
     mins = int(total_secs / 60)
     secs = total_secs - 60 * mins
     time_now = str(mins) + ':' + str(secs)
     text_time = font.render(time_now, True, BLACK)
     screen.blit(text_time, (110,110))
 
-    #Vẽ kim giờ, kim phút
+   
     y_mins = 350 - 95 * math.cos(15 * mins* math.pi / 180)
     x_mins = 200 + 95 * math.sin(15 * mins * math.pi / 180)
     pygame.draw.line(screen, BLACK, (200,350), (x_mins, y_mins))
